@@ -1,12 +1,10 @@
-#==================================================================================================
-#=== Introduction ==================================================================================================
-#==================================================================================================
-''' In this turorial, i'll show you how you can use 'monitors' for threading synchronization,
-    beleive it or not, it's rather easy, and it seems (to me at least) that it's more powerful than in other languages
-'''
-#==================================================================================================
-#=== monitor class ==================================================================================================
-#==================================================================================================
+
+# Introduction
+In this turorial, i'll show you how you can use 'monitors' for threading synchronization,
+beleive it or not, it's rather easy, and it seems (to me at least) that it's more powerful than in other languages
+
+# Monitor class 
+
 ''' this is the main class we'll be usinng, we'll inherit from it to make life easier '''
 import threading
 
