@@ -17,8 +17,6 @@ class easy_dictionairy(dict):
     __setattr__ = dict.__setitem__
     __delattr__ = dict.__delitem__
 
-# be careful ! theres also a one called __getattribute__ which works mostly, unlike __getattr__
-
 class Car(object):
     states = easy_dictionairy( # defines car states (i used symbols to be able to visualize the cars in real time :] )
         outside  = '.',
