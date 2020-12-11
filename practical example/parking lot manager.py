@@ -29,7 +29,7 @@ let's make a monitor to manage acess to the park
 '''
 
 
-from my_monitor import Monitor
+from thread_monitor import Monitor
 from off_topic_code import Car, run_as_thread, state_logger
 
 class Park(Monitor):
