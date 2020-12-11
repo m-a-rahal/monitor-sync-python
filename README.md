@@ -16,9 +16,9 @@ class Monitor(object):
     def __init__(self, lock = threading.Lock()):
         self._lock = lock # monitor's lock
 
-def Condition(self):
-    ''' returns a condition bound to this monitor's lock'''
-    return threading.Condition(self._lock)
+    def Condition(self):
+        ''' returns a condition bound to this monitor's lock'''
+        return threading.Condition(self._lock)
 ```
 
 ## How to define a monitor
@@ -77,14 +77,14 @@ monitor.exit_protocol()
 ```
 in this case, it's really more useful to define the entrance and exit protocol methods as follows:
 ```python
-class monitor():
+class monitor(Monitor):
     def __enter__(self):
         with self._lock:
             # enter_protocol code here
     
-def __exit__(self, type, value, traceback):
-    with self._lock:
-        # exit_protocol code here
+    def __exit__(self, type, value, traceback):
+        with self._lock:
+            # exit_protocol code here
 ```
 now, the syntax becomes simpler and safer !
 ```python
