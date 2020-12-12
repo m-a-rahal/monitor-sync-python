@@ -1,13 +1,9 @@
 # Introduction
 
-Monitors make synchronization so easy and less prone to bugs.
-
-Sadly, I couldn't find any implementation for them in python on the internet (at least not in the first google search page 😝).
-
-turns out, not only is it possible, but it's really simple and so powerful !
-
-**So, in this tutorial, I'll show a way I found to easily implement and use them**
-
+Monitors make synchronization so easy and less prone to bugs. Sadly, I couldn't find any implementation for them in python on the internet (at least not in the first google search page 😝).  
+turns out, not only is it possible, but it's really simple and so powerful !  
+  
+**So, in this tutorial, I'll show a way I found to easily implement and use them**  
 hope you find it useful
 
 # Monitor class
