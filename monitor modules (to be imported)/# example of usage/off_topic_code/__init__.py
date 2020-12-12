@@ -1,4 +1,5 @@
 import threading
+import multiprocessing
 import time
 import os
 import sys
@@ -15,6 +16,14 @@ def run_as_thread(func):
     ''' returns the thread to the function ! so you can gather them out in a list or something :3'''
     def wrapper(*args, **kwargs):
         t = threading.Thread(target=func, args=args, kwargs=kwargs)
+        t.start()
+        return t
+    return wrapper
+
+def run_as_process(func):
+    ''' returns the thread to the function ! so you can gather them out in a list or something :3'''
+    def wrapper(*args, **kwargs):
+        t = multiprocessing.Process(target=func, args=args, kwargs=kwargs)
         t.start()
         return t
     return wrapper
@@ -86,8 +95,7 @@ def print_states(cars, park):
         t += 1
 
 
-@run_as_thread
-def state_logger(cars, park, stop_func = lambda : False):
+def _state_logger(cars, park, stop_func = lambda : False):
     print_state = print_states(cars, park)
     while True:
         next(print_state) # prints one state
@@ -95,3 +103,10 @@ def state_logger(cars, park, stop_func = lambda : False):
             break
     next(print_state) # prints one state
     next(print_state) # prints one state
+
+
+# state logger that runs as process (could have used @run_as_process near definition intead)
+state_logger_process = run_as_process(_state_logger)
+
+# state logger that runs as process (could have used @run_as_thread near definition intead)
+state_logger_thread = run_as_thread(_state_logger)

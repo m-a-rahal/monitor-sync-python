@@ -28,7 +28,7 @@ RULES:
 let's make a monitor to manage acess to the park
 '''
 
-from off_topic_code import Car, run_as_thread, state_logger, go_to_parent_dir
+from off_topic_code import Car, run_as_thread, state_logger_thread, go_to_parent_dir
 
 go_to_parent_dir()    # go to parent dir (because the packages are in parent dir in this example)
 from thread_monitor import Monitor
@@ -132,7 +132,7 @@ def main():
         threads.append(t)
 
     #--------- launch command line logger -----------------------------------------------
-    logger = state_logger(cars, park, lambda : stop_log) 
+    logger = state_logger_thread(cars, park, lambda : stop_log) 
     ''' the lambda function here helps lets us pass a local variable to the tread AND have it always updated! (reference pass)
             (inspired from: 'https://www.geeksforgeeks.org/python-different-ways-to-kill-a-thread/') '''
     #--------- wait for threads to finish -----------------------------------------------
