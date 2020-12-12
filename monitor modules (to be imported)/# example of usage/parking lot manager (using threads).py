@@ -30,12 +30,12 @@ let's make a monitor to manage acess to the park
 
 from off_topic_code import Car, run_as_thread, state_logger, go_to_parent_dir
 
-go_to_parent_dir()    # go to parent dir (because the packages are in parent dir)
+go_to_parent_dir()    # go to parent dir (because the packages are in parent dir in this example)
 from thread_monitor import Monitor
 
 class Park(Monitor):
     def __init__(self, capacity):
-        self.init_lock()
+        self.init_lock() # don't forget to init the lock
         self.free_places      = capacity # used to block cars if park is full
         self.outside          = self.Condition() # used to make acess to gates in mutual exlusion
         self.entrance_gate    = self.Entrance_gate(self)
