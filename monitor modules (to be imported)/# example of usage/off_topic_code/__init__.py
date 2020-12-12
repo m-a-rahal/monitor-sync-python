@@ -1,8 +1,15 @@
 import threading
 import time
+import os
+import sys
 import random
 from datetime import datetime
 random.seed(datetime.now())
+
+def go_to_parent_dir():
+    import sys, os
+    sys.path.insert(1, os.path.join(sys.path[0], '..'))
+
 
 def run_as_thread(func):
     ''' returns the thread to the function ! so you can gather them out in a list or something :3'''

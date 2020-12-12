@@ -25,4 +25,4 @@ class Monitor(object):
         ''' returns a condition bound to this monitor's lock'''
         return threading.Condition(self._lock)
 
-    _init_lock = __init__
+    init_lock = __init__

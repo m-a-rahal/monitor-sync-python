@@ -28,13 +28,14 @@ RULES:
 let's make a monitor to manage acess to the park
 '''
 
+from off_topic_code import Car, run_as_thread, state_logger, go_to_parent_dir
 
+go_to_parent_dir()    # go to parent dir (because the packages are in parent dir)
 from thread_monitor import Monitor
-from off_topic_code import Car, run_as_thread, state_logger
 
 class Park(Monitor):
     def __init__(self, capacity):
-        super().__init__()
+        self.init_lock()
         self.free_places      = capacity # used to block cars if park is full
         self.outside          = self.Condition() # used to make acess to gates in mutual exlusion
         self.entrance_gate    = self.Entrance_gate(self)
@@ -44,7 +45,7 @@ class Park(Monitor):
     ''' both gates have similar parts of code, so I gathered all of those in this class'''
     class Gate(Monitor):
         def __init__(self, parent):
-            super().__init__(lock = parent._lock) # this is  part of the park, so the same lock should be used for the park and the gates
+            self.init_lock(lock = parent._lock) # this is  part of the park, so the same lock should be used for the park and the gates
             self.gate     = self.Condition()
             self.occupied = False
             self.parent   = parent
