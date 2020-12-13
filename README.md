@@ -118,7 +118,7 @@ the 'with' keyword ensures the **exit** method is ALWAYS called, no matter what 
 
 # That's it
 
-you can also check the folder `practical example` to see how to apply
+you can also check the folder `# example of usage` to see how to apply
 
 these concepts in more details
 
